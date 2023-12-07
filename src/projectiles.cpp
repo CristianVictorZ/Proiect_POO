@@ -1,4 +1,4 @@
-#include "projectiles.hpp"
+#include "../headers/projectiles.hpp"
 
 Projectile::Projectile(sf::Vector2f tPosition, int angle, sf::Vector2f pos, int _targetIndex) : position(pos)
                 {shape.setSize(sf::Vector2f(8.f,20.f)); shape.setFillColor(sf::Color(255,255,0)); shape.setOrigin(4.f, 10.f); shape.setPosition(position);
