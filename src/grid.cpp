@@ -1,4 +1,4 @@
-#include "grid.hpp"
+#include "../headers/grid.hpp"
 
 void Grid::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
