@@ -1,4 +1,4 @@
-#include "spawnpoint.hpp"
+#include "../headers/spawnpoint.hpp"
 
 SpawnPoint::SpawnPoint(sf::Vector2f _position, const std::vector<sf::Vector2f> &_checkpoints, sf::Time _spawnTime, int _enemyNumber, int _enemyType) :
             spawnTime(_spawnTime), position(_position), checkpoints(_checkpoints), enemyType(_enemyType), enemyNumber(_enemyNumber)
