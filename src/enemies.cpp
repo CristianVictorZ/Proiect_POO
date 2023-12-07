@@ -1,4 +1,4 @@
-#include "enemies.hpp"
+#include "../headers/enemies.hpp"
 
 Enemy::Enemy(sf::Vector2f _position, const std::vector<sf::Vector2f> &_checkpoints) : position(_position), checkpoints(_checkpoints)
                 {lastCheckpoint = 0;
