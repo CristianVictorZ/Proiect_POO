@@ -1,4 +1,4 @@
-#include "towers.hpp"
+#include "../headers/towers.hpp"
 
 Tower::Tower(sf::Vector2f pos) : position(pos)
         {isBeingSet = 0; isBeingPlaced = 1; isBeingRotated = 0; isFirst = 0;
