@@ -114,10 +114,10 @@ bool Tower::canShoot()
     return (elapsedTime >= attackSpeed);
 }
 
-//void Tower::shoot(std::vector<std::shared_ptr<Projectile>> projectiles, sf::Vector2f pos, float ang, int index)
-//{
-//    projectiles.emplace_back(Projectile(pos,ang,this->position,index).clone());
-//}
+void Tower::shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f pos, float ang, int index)
+{
+    projectiles.emplace_back(Projectile(pos,ang,this->position,index).clone());
+}
 
 void Tower::clockReset()
 {
@@ -186,7 +186,7 @@ Tower_01::Tower_01(sf::Vector2f pos) : Tower(pos)
 
 Tower_01::~Tower_01(){}
 
-void Tower_01::shoot_01(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f pos, float ang, int index)
+void Tower_01::shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f pos, float ang, int index)
 {
     try {
         projectiles.emplace_back(Projectile_01(pos,ang,this->position,index).clone());
@@ -206,7 +206,7 @@ Tower_02::Tower_02(sf::Vector2f pos) : Tower(pos)
 
 Tower_02::~Tower_02(){}
 
-void Tower_02::shoot_02(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f pos, float ang, int index)
+void Tower_02::shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f pos, float ang, int index)
 {
     try {
         projectiles.emplace_back(Projectile_02(pos,ang,this->position,index).clone());
