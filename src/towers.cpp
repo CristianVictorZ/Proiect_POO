@@ -137,10 +137,10 @@ void Tower::update(std::vector<std::shared_ptr<Enemy>> &enemies, std::vector<std
                 this->rotateTower(ang);
 
                 std::shared_ptr<Tower_01> tw1 = std::dynamic_pointer_cast<Tower_01>(tow);
-                if(tw1) tw1->shoot_01(projectiles, enemies[j]->getPosition(), ang, j);
+                if(tw1) tw1->shoot(projectiles, enemies[j]->getPosition(), ang, j);
 
                 std::shared_ptr<Tower_02> tw2 = std::dynamic_pointer_cast<Tower_02>(tow);
-                if(tw2) tw2->shoot_02(projectiles, enemies[j]->getPosition(), ang, j);
+                if(tw2) tw2->shoot(projectiles, enemies[j]->getPosition(), ang, j);
 
                 break;
             }
