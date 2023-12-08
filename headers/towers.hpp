@@ -60,7 +60,7 @@ public:
 
     bool canShoot();
 
-    //virtual void shoot(std::vector<std::shared_ptr<Projectile>> projectiles, sf::Vector2f enemyPos, float ang, int index);
+    virtual void shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index);
 
     void clockReset();
 
@@ -80,7 +80,7 @@ public:
 
     ~Tower_01();
 
-    void shoot_01(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index);
+    void shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index) override;
 
     std::shared_ptr<Tower_01> clone() const;
 };
@@ -92,7 +92,7 @@ public:
 
     ~Tower_02();
 
-    void shoot_02(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index);
+    void shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index) override;
 
     std::shared_ptr<Tower_02> clone() const;
 };
