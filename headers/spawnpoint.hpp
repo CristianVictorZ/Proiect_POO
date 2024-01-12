@@ -30,8 +30,6 @@ public:
 
     int getEnemyType();
 
-//    int getGeneratedEnemies();
-
     bool canGenerateEnemy();
 };
 
