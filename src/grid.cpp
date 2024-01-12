@@ -1,5 +1,6 @@
 #include "../headers/grid.hpp"
 
+///Deseneaza grid-ul.
 void Grid::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
     states.transform *= getTransform();
@@ -7,6 +8,7 @@ void Grid::draw(sf::RenderTarget& target, sf::RenderStates states) const
     target.draw(m_vertices, states);
 }
 
+///Incarca grid-ul.
 bool Grid::load(const std::string& tileset, const int* tiles)
 {
     if (!m_tileset.loadFromFile(tileset))
@@ -38,6 +40,7 @@ bool Grid::load(const std::string& tileset, const int* tiles)
     return true;
 }
 
+///Obtine pozitia de centrul unui tile al grid-ului.
 sf::Vector2f Grid::getSnapPoint (sf::Vector2f pos, const int* tiles)
 {
     if(pos.y > len*height)
@@ -49,3 +52,4 @@ sf::Vector2f Grid::getSnapPoint (sf::Vector2f pos, const int* tiles)
     sf::Vector2f snapPoint = sf::Vector2f((float) (auxPoint.x*len + len/2), (float) (auxPoint.y*len + len/2));
     return snapPoint;
 }
+
