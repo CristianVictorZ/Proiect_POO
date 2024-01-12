@@ -1,4 +1,4 @@
-#include "observer.hpp"
+#include "../headers/observer.hpp"
 
 ///Constructor
 EnemyObserver::EnemyObserver(std::shared_ptr<Tower> &tow){tower = tow;}
