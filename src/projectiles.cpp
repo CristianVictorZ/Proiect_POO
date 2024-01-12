@@ -1,12 +1,15 @@
 #include "../headers/projectiles.hpp"
 
+///Constructor.
 Projectile::Projectile(sf::Vector2f tPosition, int angle, sf::Vector2f pos, int _targetIndex) : position(pos)
                 {shape.setSize(sf::Vector2f(8.f,20.f)); shape.setFillColor(sf::Color(255,255,0)); shape.setOrigin(4.f, 10.f); shape.setPosition(position);
                 boundingBox = shape.getGlobalBounds(); targetPosition = tPosition; shape.setRotation(angle); currentPosition = position; targetIndex = _targetIndex;
                 /*if(targetIndex < 0) throw exceptionProjectileIndex();*/}
 
+///Destructor.
 Projectile::~Projectile(){}
 
+///Deplaseaza un proiectil.
 void Projectile::moveProjectile(sf::RenderWindow &window)
 {
     float dist = sqrt((currentPosition.x - targetPosition.x) * (currentPosition.x - targetPosition.x) + (currentPosition.y - targetPosition.y) * (currentPosition.y - targetPosition.y));
@@ -27,31 +30,37 @@ void Projectile::moveProjectile(sf::RenderWindow &window)
 //        return boundingBox.intersects(TargetBoundingBox);
 //    }
 
+///Scade indexul inamicului pe care il tinteste un proiectil.
 void Projectile::decreaseTargetIndex()
 {
     targetIndex--;
 }
 
+///Verifica daca proiectilul si-a atins tinta.
 bool Projectile::reachedTarget()
 {
     return targetReached;
 }
 
+///Intoarce indexul inamicului pe care il tinteste un proiectil.
 int Projectile::getTargetIndex()
 {
     return targetIndex;
 }
 
+///Intoarce cat damage da un proiectil.
 float Projectile::getDamage()
 {
     return damage;
 }
 
+///Intoarce un shared pointer pentru Projectile.
 std::shared_ptr<Projectile> Projectile::clone() const
 {
     return std::make_shared<Projectile>(*this);
 }
 
+///Constructor de copiere pentru Projectile.
 Projectile::Projectile (const Projectile &proj)
 {
     this->position = proj.position;
@@ -64,19 +73,25 @@ Projectile::Projectile (const Projectile &proj)
     this->damage = proj.damage; this->projectileSpeed = proj.projectileSpeed;
 }
 
+///Constructor pentru Projectile_01.
 Projectile_01::Projectile_01(sf::Vector2f tPosition, int angle, sf::Vector2f pos, int _targetIndex) : Projectile(tPosition, angle, pos, _targetIndex){damage = 20; projectileSpeed = 32;}
 
+///Destructor pentru Projectile_01.
 Projectile_01::~Projectile_01(){}
 
+///Intoarce un shared pointer pentru Projectile_01.
 std::shared_ptr<Projectile_01> Projectile_01::clone() const
 {
     return std::make_shared<Projectile_01>(*this);
 }
 
+///Constructor pentru Projectile_02.
 Projectile_02::Projectile_02(sf::Vector2f tPosition, int angle, sf::Vector2f pos, int _targetIndex) : Projectile(tPosition, angle, pos, _targetIndex){damage = 10; projectileSpeed = 32;}
 
+///Destructor pentru Projectile_02.
 Projectile_02::~Projectile_02(){}
 
+///Intoarce un shared pointer pentru Projectile_02.
 std::shared_ptr<Projectile_02> Projectile_02::clone() const
 {
     return std::make_shared<Projectile_02>(*this);
