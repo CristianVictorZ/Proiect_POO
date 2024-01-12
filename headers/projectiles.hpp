@@ -30,8 +30,6 @@ public:
 
     void decreaseTargetIndex();
 
-//    bool hitTarget(sf::FloatRect TargetBoundingBox);
-
     bool reachedTarget();
 
     int getTargetIndex();
