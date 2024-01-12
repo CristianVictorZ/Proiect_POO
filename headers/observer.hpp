@@ -33,6 +33,11 @@ class Subject
     std::vector<std::shared_ptr<Observer>> observers;
 
 public:
+
+    Subject();
+
+    ~Subject();
+
     void registerObserver(std::shared_ptr<Observer> obs);
 
     void notifyObservers();
