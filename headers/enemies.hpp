@@ -4,6 +4,8 @@
 #include <memory>
 
 #include "projectiles.hpp"
+#include "observer.hpp"
+#include "towers.hpp"
 
 #ifndef ENEMIES_HPP
 #define ENEMIES_HPP
@@ -31,7 +33,7 @@ public:
 
     sf::Vector2f getPosition();
 
-    void updatePosition();
+    sf::Vector2f updatePosition();
 
     bool reachedObjective();
 
@@ -51,8 +53,6 @@ public:
     Enemy_01(sf::Vector2f _position, const std::vector<sf::Vector2f> &_checkpoints);
 
     ~Enemy_01();
-
-    std::shared_ptr<Enemy_01> clone() const;
 };
 
 class Enemy_02 : public Enemy
@@ -62,8 +62,25 @@ public:
     Enemy_02(sf::Vector2f _position, const std::vector<sf::Vector2f> &_checkpoints);
 
     ~Enemy_02();
+};
 
-    std::shared_ptr<Enemy_02> clone() const;
+class EnemyFactory
+{
+public:
+    virtual std::shared_ptr<Enemy> createEnemy(sf::Vector2f position, const std::vector<sf::Vector2f> &checkpoints) = 0;
+    virtual ~EnemyFactory();
+};
+
+class Enemy_01Factory : public EnemyFactory
+{
+public:
+    std::shared_ptr<Enemy> createEnemy(sf::Vector2f position, const std::vector<sf::Vector2f> &checkpoints) override;
+};
+
+class Enemy_02Factory : public EnemyFactory
+{
+public:
+    std::shared_ptr<Enemy> createEnemy(sf::Vector2f position, const std::vector<sf::Vector2f> &checkpoints) override;
 };
 
 #endif
