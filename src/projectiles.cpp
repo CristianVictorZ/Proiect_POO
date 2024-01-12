@@ -25,11 +25,6 @@ void Projectile::moveProjectile(sf::RenderWindow &window)
         window.draw(shape);
 }
 
-//    bool Projectile::hitTarget(sf::FloatRect TargetBoundingBox)
-//    {
-//        return boundingBox.intersects(TargetBoundingBox);
-//    }
-
 ///Scade indexul inamicului pe care il tinteste un proiectil.
 void Projectile::decreaseTargetIndex()
 {
