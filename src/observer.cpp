@@ -16,6 +16,12 @@ std::shared_ptr<EnemyObserver> EnemyObserver::clone() const
     return std::make_shared<EnemyObserver>(*this);
 }
 
+///Constructor Subject.
+Subject::Subject(){}
+
+///Destructor Subject.
+Subject::~Subject(){}
+
 ///Incarca un observer in vectorul de observeri.
 void Subject::registerObserver(std::shared_ptr<Observer> obs)
 {
