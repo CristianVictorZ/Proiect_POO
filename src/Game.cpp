@@ -1,4 +1,4 @@
-#include "Game.hpp"
+#include "../headers/Game.hpp"
 
 int Game::run(sf::RenderWindow &window)
 {
