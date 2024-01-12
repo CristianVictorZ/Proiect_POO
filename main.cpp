@@ -19,7 +19,7 @@ int main()
     ///Initializare joc.
     Game game;
     int rezultat = game.run(window);
-    if(!rezultat)
+    if(rezultat)
         std::cout<<"Eroare!";
 
     return 0;
