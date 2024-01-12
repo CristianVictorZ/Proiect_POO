@@ -5,7 +5,6 @@
 #include <math.h>
 #include <memory>
 
-#include "enemies.hpp"
 #include "projectiles.hpp"
 #include "exceptii.hpp"
 
@@ -21,7 +20,8 @@ protected:
     sf::FloatRect boundingBox, attackRange;
     sf::Time attackSpeed;
     sf::Clock attackTimer;
-    sf::Vector2f position;
+    sf::Vector2f position, targetPosition;
+    int targetIndex;
 
 public:
     explicit Tower(sf::Vector2f pos);
@@ -50,6 +50,10 @@ public:
 
     bool checkAttackRange (sf::Vector2f position);
 
+    void setTargetPosition(sf::Vector2f position);
+
+    void setTargetIndex(int index);
+
     void hasBeenSet();
 
     bool isSet();
@@ -60,11 +64,13 @@ public:
 
     bool canShoot();
 
-    virtual void shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index);
-
     void clockReset();
 
-    void update(std::vector<std::shared_ptr<Enemy>> &enemies, std::vector<std::shared_ptr<Projectile>> &projectiles, std::shared_ptr<Tower> &tow, sf::RenderWindow &window);
+    //Fara Observer
+    //void update(std::vector<std::shared_ptr<Enemy>> &enemies, std::vector<std::shared_ptr<Projectile>> &projectiles, std::shared_ptr<Tower> &tow, sf::RenderWindow &window);
+
+    //Cu Observer
+    void update(std::vector<std::shared_ptr<Projectile>> &projectiles, std::shared_ptr<Tower> &tow, sf::RenderWindow &window);
 
     friend std::ostream &operator<<( std::ostream &output, const Tower &tow );
 
@@ -80,7 +86,7 @@ public:
 
     ~Tower_01();
 
-    void shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index) override;
+    void shoot_01(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index);
 
     std::shared_ptr<Tower_01> clone() const;
 };
@@ -92,7 +98,7 @@ public:
 
     ~Tower_02();
 
-    void shoot(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index) override;
+    void shoot_02(std::vector<std::shared_ptr<Projectile>> &projectiles, sf::Vector2f enemyPos, float ang, int index);
 
     std::shared_ptr<Tower_02> clone() const;
 };
