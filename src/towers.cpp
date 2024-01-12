@@ -180,7 +180,7 @@ void Tower::clockReset()
 //        this->drawAttackRange(window);
 //}
 
-//Cu Observer
+///Actualizeaza un turn; Varianta cu Observer
 void Tower::update(std::vector<std::shared_ptr<Projectile>> &projectiles, std::shared_ptr<Tower> &tow, sf::RenderWindow &window)
 {
     if(this->canShoot())///Verifica daca turnul poate trage
