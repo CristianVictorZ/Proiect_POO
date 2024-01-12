@@ -19,7 +19,7 @@ class EnemyObserver : public Observer
     std::shared_ptr<Tower> tower;
 public:
 
-    EnemyObserver(std::shared_ptr<Tower> &tow);
+    explicit EnemyObserver(std::shared_ptr<Tower> &tow);
 
     void update(sf::Vector2f pos, int targetIndex) override;
 
