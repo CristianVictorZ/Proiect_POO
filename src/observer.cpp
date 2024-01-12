@@ -1,7 +1,7 @@
 #include "../headers/observer.hpp"
 
 ///Constructor
-EnemyObserver::EnemyObserver(std::shared_ptr<Tower> &tow){tower = tow;}
+EnemyObserver::EnemyObserver(std::shared_ptr<Tower> &tow):tower(tow){}
 
 ///Seteaza pozitia si indicele unui inamic pentru un turn.
 void EnemyObserver::update(sf::Vector2f pos, int targetIndex)
